@@ -1,0 +1,15 @@
+{
+  "name": "hashrandom",
+  "version": "1.0.0",
+  "description": "Proyect create distint type hasher with insert a parameter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diego Emilio Fuentes Gomez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jshashes": "^1.0.8"
+  }
+}
