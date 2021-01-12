@@ -4,12 +4,16 @@
   "description": "Proyect create distint type hasher with insert a parameter",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon  ./index.js",
+    "start": "node ./index.js"
   },
   "author": "Diego Emilio Fuentes Gomez",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "express": "^4.17.1",
-    "jshashes": "^1.0.8"
+    "jshashes": "^1.0.8",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.7"
   }
 }
