@@ -2,13 +2,19 @@
 const bcryp = require('bcrypt');
 // require the module 
 var Hashes = require('jshashes');
+// require hasha
+var hasha = require('hasha');
 
+
+const { uuid,v4: uuidv4,v1:uuidv1, stringify } = require('uuid');
+
+//import {uuid,v4 as uuidv4,v1 as uuidv1, stringify} from 'uuid'
 
 exports.hash = async (req,res) =>{
 
-    const {valor} = req.body;
+    const {valor} = req.body; 
 
-    //console.log(valor);
+    var test = [valor];
 
     //hashear bscryp
     const salt = await bcryp.genSalt(10);
@@ -38,9 +44,14 @@ exports.hash = async (req,res) =>{
         const SHA512_B64 = new Hashes.SHA512().b64(valor);
         // new RIPEMD-160 instace
         const RMD160_B64 = new Hashes.RMD160().b64(valor);
+        const hashas =  hasha(valor);
 
+        //return json
     res.json(
         {
+         uuid1 :uuidv1(),
+         uuid4 :uuidv4(),
+         uuidfromeString:stringify(test),
          bcrypSalt10:bscryptvalor,
          MD5_HEX: MD5_HEX,
          SHA1_HEX:SHA1_HEX,
@@ -51,7 +62,8 @@ exports.hash = async (req,res) =>{
          SHA1_B64:SHA1_HEX,
          SHA256_B64:SHA256_HEX,
          SHA512_B64:SHA512_HEX,
-         RMD160_B64:RMD160_HEX
+         RMD160_B64:RMD160_HEX,
+         hasha: hashas
         }
         );
 }
